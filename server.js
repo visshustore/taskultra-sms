@@ -56,7 +56,7 @@ app.post('/upload-screenshot', upload.single('screenshot'), async (req, res) => 
         console.log(`✅ Screenshot successfully forwarded to Telegram for UID: ${uid}`);
         return res.status(200).json({ success: true, message: "Screenshot uploaded and forwarded successfully!" });
 
-    } codeCatch(err) {
+    } catch (err) {
         // Fallback error catch
         console.error("❌ Error forwarding screenshot to Telegram:", err.response?.data || err.message);
         return res.status(500).json({ success: false, message: "Internal server error while forwarding to Telegram." });
